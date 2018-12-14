@@ -12,10 +12,7 @@ slider.addEventListener('change', function() {
 })
 
 function start() {
-  if (timeout) {
-    clearTimeout(timeout);
-    turn = 0;
-  }
+  stop();
   document.getElementById('tries').innerHTML = turn;
   let num = document.getElementById('number').value;
   let reg = /\d+/g
@@ -26,6 +23,12 @@ function start() {
   }
   if (str.length > 0)
     palindrome(split(str));
+}
+
+function stop() {
+  if (timeout) {
+    clearTimeout(timeout);
+  }
 }
 
 function printout(arr) {
